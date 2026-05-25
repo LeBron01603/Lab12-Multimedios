@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio 11: Web Components Interactivos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>Laboratorio 11</h1>
+    <p>Comunicación reactiva, Shadow DOM, CSS Variables, Slots y CSS Parts</p>
+  </header>
+
+  <main>
+    <!-- ESTRUCTURA PRINCIPAL REQUERIDA POR LA GUÍA -->
+    <user-dashboard>
+      <user-card>
+        Avatar Alonso Profesor [Saludar]
+      </user-card>
+
+      <weather-time>
+        Liberia 31 °C Sunny
+      </weather-time>
+
+      <warning-badge pulsing>
+        Sesión por expirar
+      </warning-badge>
+    </user-dashboard>
+  </main>
+
+  <!-- CONTROLES INTERACTIVOS PARA PRUEBAS -->
+  <div class="demo-controls">
+    <label>
+      Ciudad:
+      <input type="text" id="ctrl-city" value="Liberia">
+    </label>
+    <label>
+      Temperatura:
+      <input type="text" id="ctrl-temp" value="31 °C">
+    </label>
+    <label>
+      Clima:
+      <select id="ctrl-weather">
+        <option value="Sunny" selected>Soleado (Sunny)</option>
+        <option value="Cloudy">Nublado (Cloudy)</option>
+        <option value="Rainy">Lluvioso (Rainy)</option>
+        <option value="Thunderstorm">Tormenta (Thunderstorm)</option>
+        <option value="Windy">Ventoso (Windy)</option>
+      </select>
+    </label>
+    <label style="flex-direction: row; gap: 8px; align-items: center; margin-top: 15px;">
+      <input type="checkbox" id="ctrl-pulse">
+      <span>Pulso Activo (warning-badge)</span>
+    </label>
+  </div>
+
+</body>
+
+</html>

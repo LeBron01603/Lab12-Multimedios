@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette - Soft Pastel & Vibrants */
+  --dashboard-bg-start: #eae5f7;
+  --dashboard-bg-end: #f4ecf8;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: 1px solid rgba(255, 255, 255, 0.5);
+  --card-shadow: 0 10px 25px rgba(124, 58, 237, 0.08), 0 2px 5px rgba(0, 0, 0, 0.02);
+  
+  --primary-color: #7c3aed;
+  --primary-hover: #6d28d9;
+  --primary-light: #f5f3ff;
+  
+  --text-main: #1e1b4b;
+  --text-muted: #5b586e;
+  
+  --weather-bg: rgba(255, 255, 255, 0.85);
+  
+  --warning-bg: #fee2e2;
+  --warning-border: 1px solid #fecaca;
+  --warning-text: #991b1b;
+  --warning-pulse-shadow: rgba(239, 68, 68, 0.4);
+
+  /* Typography & Layout Tokens */
+  --font-main: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #f8fafc;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Page Header & Intro styling */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* DEMO CONTROLS CONTAINER */
+.demo-controls {
+  margin-top: 2rem;
+  padding: 20px;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.025);
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.demo-controls label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.demo-controls input, 
+.demo-controls select {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.demo-controls input:focus,
+.demo-controls select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.btn-control {
+  padding: 8px 16px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-control:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* CUSTOMIZING INNER PARTS OF WEB COMPONENTS VIA CSS PARTS */
+/* 1. user-card parts customization */
+user-card::part(card) {
+  /* Extra shadow or override on card container */
+  transition: var(--transition-smooth);
+}
+
+user-card::part(card):hover {
+  transform: translateY(-4px);
+}
+
+user-card::part(avatar) {
+  border: 2px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+user-card::part(button) {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* 2. weather-time parts customization */
+weather-time::part(widget):hover {
+  transform: translateY(-4px);
+}
+
+/* 3. warning-badge parts customization */
+warning-badge::part(badge) {
+  font-family: var(--font-main);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
